@@ -27,10 +27,7 @@ public class Customer {
 
         for (Rental rental : rentals) {
             double thisAmount = determineAmountsForEachLine(rental);
-
-            frequentRenterPoints += getFrequentRenterPoints(rental);
-
-            // show figures for this rental
+            frequentRenterPoints += addFrequentRenterPoints(rental);
             result += showFiguresForThisRental(rental, thisAmount);
             totalAmount += thisAmount;
         }
@@ -49,18 +46,18 @@ public class Customer {
         return "Amount owed is " + totalAmount + "\n" + "You earned " + frequentRenterPoints + " frequent renter points";
     }
 
-    private static String showFiguresForThisRental(Rental each, double thisAmount) {
-        return "\t" + each.getMovie().getTitle() + "\t" + thisAmount + "\n";
+    private static String showFiguresForThisRental(Rental rental, double thisAmount) {
+        return "\t" + rental.getMovie().getTitle() + "\t" + thisAmount + "\n";
     }
 
-    private static int getFrequentRenterPoints(Rental rental) {
-        int frequentRenterPoints;
-        // add frequent renter points
-        frequentRenterPoints = 1;
-        // add bonus for a two day new release rental
+    private static int addFrequentRenterPoints(Rental rental) {
+        return 1 + addBonusForTwoDayNewReleaseRental(rental);
+    }
+
+    private static int addBonusForTwoDayNewReleaseRental(Rental rental) {
         if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
-            frequentRenterPoints += 1;
-        return frequentRenterPoints;
+            return 1;
+        return 0;
     }
 
     private static double determineAmountsForEachLine(Rental rental) {
