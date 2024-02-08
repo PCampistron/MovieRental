@@ -13,7 +13,7 @@ public class Rental {
         _daysRented = daysRented;
     }
 
-    static double determineAmountsForEachLine(Rental rental) {
+    static double determineAmounts(Rental rental) {
         double thisAmount = 0;
 
         //determine amounts for each line
@@ -41,7 +41,7 @@ public class Rental {
         return 0;
     }
 
-    static int addFrequentRenterPoints(Rental rental) {
+    static int frequentRenterPoints(Rental rental) {
         return 1 + addBonusForTwoDayNewReleaseRental(rental);
     }
 
