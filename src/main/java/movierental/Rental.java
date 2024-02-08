@@ -35,6 +35,20 @@ public class Rental {
         return thisAmount;
     }
 
+    static int addBonusForTwoDayNewReleaseRental(Rental rental) {
+        if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDaysRented() > 1)
+            return 1;
+        return 0;
+    }
+
+    static int addFrequentRenterPoints(Rental rental) {
+        return 1 + addBonusForTwoDayNewReleaseRental(rental);
+    }
+
+    static String showFiguresForThisRental(Rental rental, double thisAmount) {
+        return "\t" + rental.getMovie().getTitle() + "\t" + thisAmount + "\n";
+    }
+
     public int getDaysRented() {
         return _daysRented;
     }
