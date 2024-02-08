@@ -26,7 +26,7 @@ public class Customer {
         String result = addHeaderLine();
 
         for (Rental rental : rentals) {
-            double thisAmount = determineAmountsForEachLine(rental);
+            double thisAmount = Rental.determineAmountsForEachLine(rental);
             frequentRenterPoints += addFrequentRenterPoints(rental);
             result += showFiguresForThisRental(rental, thisAmount);
             totalAmount += thisAmount;
@@ -60,25 +60,4 @@ public class Customer {
         return 0;
     }
 
-    private static double determineAmountsForEachLine(Rental rental) {
-        double thisAmount = 0;
-
-        //determine amounts for each line
-        switch (rental.getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                thisAmount += 2;
-                if (rental.getDaysRented() > 2)
-                    thisAmount += (rental.getDaysRented() - 2) * 1.5;
-                break;
-            case Movie.NEW_RELEASE:
-                thisAmount += rental.getDaysRented() * 3;
-                break;
-            case Movie.CHILDRENS:
-                thisAmount += 1.5;
-                if (rental.getDaysRented() > 3)
-                    thisAmount += (rental.getDaysRented() - 3) * 1.5;
-                break;
-        }
-        return thisAmount;
-    }
 }
