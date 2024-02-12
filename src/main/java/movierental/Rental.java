@@ -16,11 +16,6 @@ public class Rental {
     double determineAmounts() {
         //determine amounts for each line
         switch (getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                double amount = 2;
-                if (getDaysRented() > 2)
-                    amount += (getDaysRented() - 2) * 1.5;
-                return amount;
             case Movie.NEW_RELEASE:
                 return getDaysRented() * 3;
             case Movie.CHILDRENS:
@@ -29,6 +24,12 @@ public class Rental {
                     thisAmount += (getDaysRented() - 3) * 1.5;
                 return thisAmount;
         }
+
+        if(getMovie().getMoviePriceCode() == MoviePriceCode.REGULAR)
+        {
+            return getMovie().getMoviePriceCode().getComputeAmount().apply(getDaysRented());
+        }
+
         return 0;
     }
 
