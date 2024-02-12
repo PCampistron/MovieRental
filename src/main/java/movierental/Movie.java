@@ -2,23 +2,12 @@ package movierental;
 
 public class Movie {
     private String title;
-    private int priceCode;
-
 
     private MoviePriceCode moviePriceCode;
-
-    public Movie(String title, int priceCode) {
-        this.title = title;
-        this.priceCode = priceCode;
-    }
 
     public Movie(String title, MoviePriceCode moviePriceCode) {
         this.moviePriceCode = moviePriceCode;
         this.title = title;
-    }
-
-    public int getPriceCode() {
-        return priceCode;
     }
 
     public MoviePriceCode getMoviePriceCode() {
