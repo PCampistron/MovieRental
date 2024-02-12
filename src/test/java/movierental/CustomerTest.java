@@ -17,7 +17,7 @@ public class CustomerTest {
         customer.addRental(new Rental(new Movie("Toy Story", MoviePriceCode.CHILDREN), 4));
 
         String expected = "" +
-                "Rental Record for Bob\n" +
+                "<h1>Rental Record for <em>Bob</em></h1>\n" +
                 "\tJaws\t2.0\n" +
                 "\tGolden Eye\t3.5\n" +
                 "\tShort New\t3.0\n" +
