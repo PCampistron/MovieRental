@@ -21,20 +21,32 @@ public class Customer {
     }
 
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
         String result = addHeaderLine();
 
         for (Rental rental : rentals) {
-            frequentRenterPoints += rental.frequentRenterPoints();
             result += rental.showFiguresForThisRental(rental.determineAmounts());
-            totalAmount += rental.determineAmounts();
         }
 
         // add footer lines
-        result += addFooterLines(totalAmount, frequentRenterPoints);
+        result += addFooterLines(totalAmount(), frequentRenterPoints());
 
         return result;
+    }
+
+    private double totalAmount() {
+        double totalAmount = 0;
+        for (Rental rental : rentals) {
+            totalAmount += rental.determineAmounts();
+        }
+        return totalAmount;
+    }
+
+    private int frequentRenterPoints() {
+        int frequentRenterPoints = 0;
+        for (Rental rental : rentals) {
+            frequentRenterPoints += rental.frequentRenterPoints();
+        }
+        return frequentRenterPoints;
     }
 
     private String addHeaderLine() {
