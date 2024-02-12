@@ -1,8 +1,6 @@
 package movierental;
 
 public class Movie {
-    public static final int CHILDRENS = 2;
-
     private String title;
     private int priceCode;
 

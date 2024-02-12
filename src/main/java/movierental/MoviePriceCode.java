@@ -13,6 +13,13 @@ public enum MoviePriceCode {
     NEW_RELEASE((daysRented) -> {
             return daysRented * 3.0;
         }
+    ),
+    CHILDREN((daysRented) -> {
+            double thisAmount = 1.5;
+            if (daysRented > 3)
+                thisAmount += (daysRented - 3) * 1.5;
+            return thisAmount;
+        }
     );
 
     private Function<Integer, Double> computeAmount;
