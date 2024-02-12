@@ -16,7 +16,7 @@ public class Rental {
     double determineAmounts() {
         if(getMovie().getMoviePriceCode() != null)
         {
-            return getMovie().getMoviePriceCode().getComputeAmount().apply(getDaysRented());
+            return getMovie().getMoviePriceCode().computeAmount(getDaysRented());
         }
 
         return 0;

@@ -22,13 +22,14 @@ public enum MoviePriceCode {
         }
     );
 
-    private Function<Integer, Double> computeAmount;
+    private Function<Integer, Double> amountRule;
 
-    MoviePriceCode(Function<Integer, Double> computeAmount) {
-        this.computeAmount = computeAmount;
+    MoviePriceCode(Function<Integer, Double> amountRule) {
+        this.amountRule = amountRule;
     }
 
-    public Function<Integer, Double> getComputeAmount() {
-        return computeAmount;
+    public Double computeAmount(int daysRented)
+    {
+        return amountRule.apply(daysRented);
     }
 }
