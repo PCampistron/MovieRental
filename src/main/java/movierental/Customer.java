@@ -23,9 +23,13 @@ public class Customer {
     public String statement() {
         String result = addHeaderLine();
 
+        result += "<table>\n";
+
         for (Rental rental : rentals) {
             result += rental.showFiguresForThisRental(rental.determineAmounts());
         }
+
+        result += "</table>\n";
 
         // add footer lines
         result += addFooterLines(totalAmount(), frequentRenterPoints());

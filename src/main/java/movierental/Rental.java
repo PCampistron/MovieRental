@@ -28,7 +28,7 @@ public class Rental {
     }
 
     String showFiguresForThisRental(double thisAmount) {
-        return "<tr><td>" + getMovie().getTitle() + "</td><td>" + thisAmount + "</td></tr>\n";
+        return "  <tr><td>" + getMovie().getTitle() + "</td><td>" + thisAmount + "</td></tr>\n";
     }
 
     public int getDaysRented() {
