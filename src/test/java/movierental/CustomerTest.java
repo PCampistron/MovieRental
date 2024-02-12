@@ -18,14 +18,16 @@ public class CustomerTest {
 
         String expected = "" +
                 "<h1>Rental Record for <em>Bob</em></h1>\n" +
-                "\tJaws\t2.0\n" +
-                "\tGolden Eye\t3.5\n" +
-                "\tShort New\t3.0\n" +
-                "\tLong New\t6.0\n" +
-                "\tBambi\t1.5\n" +
-                "\tToy Story\t3.0\n" +
-                "Amount owed is 19.0\n" +
-                "You earned 7 frequent renter points";
+                "<table>\n" +
+                "  <tr><td>Jaws</td><td>2.0\n" +
+                "  <tr><td>Golden Eye</td><td>3.5</td></tr>\n" +
+                "  <tr><td>Short New</td><td>3.0</td></tr>\n" +
+                "  <tr><td>Long New</td><td>6.0</td></tr>\n" +
+                "  <tr><td>Bambi</td><td>1.5</td></tr>\n" +
+                "  <tr><td>Toy Story</td><td>3.0</td></tr>\n" +
+                "</table>\n" +
+                "<p>Amount owed is <em>19.0</em></p>\n" +
+                "<p>You earned <em>7</em> frequent renter points</p>";
 
         assertEquals(expected, customer.statement());
     }
