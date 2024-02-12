@@ -19,7 +19,7 @@ public class CustomerTest {
         String expected = "" +
                 "<h1>Rental Record for <em>Bob</em></h1>\n" +
                 "<table>\n" +
-                "  <tr><td>Jaws</td><td>2.0\n" +
+                "  <tr><td>Jaws</td><td>2.0</td></tr>\n" +
                 "  <tr><td>Golden Eye</td><td>3.5</td></tr>\n" +
                 "  <tr><td>Short New</td><td>3.0</td></tr>\n" +
                 "  <tr><td>Long New</td><td>6.0</td></tr>\n" +

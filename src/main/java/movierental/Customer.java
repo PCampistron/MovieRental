@@ -50,11 +50,11 @@ public class Customer {
     }
 
     private String addHeaderLine() {
-        return "Rental Record for " + getName() + "\n";
+        return "<h1>Rental Record for <em>" + getName() + "</em></h1>\n";
     }
 
     private static String addFooterLines(double totalAmount, int frequentRenterPoints) {
-        return "Amount owed is " + totalAmount + "\n" + "You earned " + frequentRenterPoints + " frequent renter points";
+        return "<p>Amount owed is <em>" + totalAmount + "</em></p>\n" + "<p>You earned <em>" + frequentRenterPoints + "</em> frequent renter points</p>";
     }
 
 }
