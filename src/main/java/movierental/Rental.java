@@ -14,12 +14,7 @@ public class Rental {
     }
 
     double determineAmounts() {
-        if(getMovie().getMoviePriceCode() != null)
-        {
-            return getMovie().getMoviePriceCode().computeAmount(getDaysRented());
-        }
-
-        return 0;
+        return getMovie().getMoviePriceCode().computeAmount(getDaysRented());
     }
 
     int addBonusForTwoDayNewReleaseRental() {
