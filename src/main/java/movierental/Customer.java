@@ -26,10 +26,9 @@ public class Customer {
         String result = addHeaderLine();
 
         for (Rental rental : rentals) {
-            double thisAmount = rental.determineAmounts();
             frequentRenterPoints += rental.frequentRenterPoints();
-            result += rental.showFiguresForThisRental(thisAmount);
-            totalAmount += thisAmount;
+            result += rental.showFiguresForThisRental(rental.determineAmounts());
+            totalAmount += rental.determineAmounts();
         }
 
         // add footer lines
