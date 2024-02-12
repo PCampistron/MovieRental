@@ -11,8 +11,8 @@ public class CustomerTest {
         Customer customer = new Customer("Bob");
         customer.addRental(new Rental(new Movie("Jaws", MoviePriceCode.REGULAR), 2));
         customer.addRental(new Rental(new Movie("Golden Eye", MoviePriceCode.REGULAR), 3));
-        customer.addRental(new Rental(new Movie("Short New", Movie.NEW_RELEASE), 1));
-        customer.addRental(new Rental(new Movie("Long New", Movie.NEW_RELEASE), 2));
+        customer.addRental(new Rental(new Movie("Short New", MoviePriceCode.NEW_RELEASE), 1));
+        customer.addRental(new Rental(new Movie("Long New", MoviePriceCode.NEW_RELEASE), 2));
         customer.addRental(new Rental(new Movie("Bambi", Movie.CHILDRENS), 3));
         customer.addRental(new Rental(new Movie("Toy Story", Movie.CHILDRENS), 4));
 

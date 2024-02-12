@@ -16,8 +16,6 @@ public class Rental {
     double determineAmounts() {
         //determine amounts for each line
         switch (getMovie().getPriceCode()) {
-            case Movie.NEW_RELEASE:
-                return getDaysRented() * 3;
             case Movie.CHILDRENS:
                 double thisAmount = 1.5;
                 if (getDaysRented() > 3)
@@ -25,7 +23,7 @@ public class Rental {
                 return thisAmount;
         }
 
-        if(getMovie().getMoviePriceCode() == MoviePriceCode.REGULAR)
+        if(getMovie().getMoviePriceCode() != null)
         {
             return getMovie().getMoviePriceCode().getComputeAmount().apply(getDaysRented());
         }
@@ -34,7 +32,7 @@ public class Rental {
     }
 
     int addBonusForTwoDayNewReleaseRental() {
-        if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1)
+        if ((getMovie().getMoviePriceCode() == MoviePriceCode.NEW_RELEASE) && getDaysRented() > 1)
             return 1;
         return 0;
     }

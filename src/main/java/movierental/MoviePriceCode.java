@@ -9,6 +9,10 @@ public enum MoviePriceCode {
                 amount += (daysRented - 2) * 1.5;
             return amount;
         }
+    ),
+    NEW_RELEASE((daysRented) -> {
+            return daysRented * 3.0;
+        }
     );
 
     private Function<Integer, Double> computeAmount;
